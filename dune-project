@@ -3,6 +3,7 @@
 (using directory-targets 0.1)
 
 (name riot_website)
+(generate_opam_files true)
 
 (source (github riot-ml/website))
 
