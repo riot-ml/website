@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Enter a description of your app here",
   "scripts": {
-    "build": "dune build",
+    "build": "dune build && vite build _build/default",
     "dev": "dune build && concurrently 'npm:vite-dev' 'npm:dune-watch'",
     "dune-watch": "dune build -w",
     "serve": "dune build && vite preview --host",
