@@ -1,0 +1,25 @@
+(dirs :standard \ node_modules)
+(alias 
+  (name all)
+  (deps
+     (alias_rec vite)))
+
+(rule
+  (alias vite)
+   (targets (dir dist))
+   (deps
+     (alias_rec website) 
+     (:vite ./vite.config.js) 
+     (:index_html ./index.html))
+   (action
+    (system "../../node_modules/.bin/vite build"))
+   (mode
+     (promote (until-clean))))
+
+  (melange.emit
+   (target output)
+   (alias website)
+   (libraries app)
+   (module_systems (es6 mjs)))
+
+
