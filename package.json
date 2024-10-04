@@ -1,21 +1,27 @@
 {
-  "name": "website",
+  "name": "riot",
+  "type": "module",
   "version": "0.0.1",
-  "description": "Enter a description of your app here",
   "scripts": {
-    "build": "dune build && vite build _build/default",
-    "dev": "dune build && concurrently 'npm:vite-dev' 'npm:dune-watch'",
-    "dune-watch": "dune build -w",
-    "serve": "dune build && vite preview --host",
-    "vite-dev": "vite _build/default --host"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "fmt": "prettier . --write",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/starlight": "^0.28.2",
+    "@astrojs/starlight-tailwind": "^2.0.3",
+    "@astrojs/tailwind": "^5.1.1",
+    "astro": "^4.15.3",
+    "sharp": "^0.32.5",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "autoprefixer": "^10.4.17",
-    "concurrently": "^8.2.2",
-    "postcss": "^8.4.34",
-    "tailwindcss": "^3.4.1",
-    "vite": "^4.5.0",
-    "vite-plugin-melange": "^2.2.0"
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

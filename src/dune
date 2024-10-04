@@ -1,4 +1,0 @@
-(library
-  (package riot_website)
-  (name app)
-  (modes melange))
