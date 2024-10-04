@@ -1,13 +1,19 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-
 import tailwind from "@astrojs/tailwind";
+import astroExpressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://riot.ml',
   integrations: [
+    astroExpressiveCode({
+      shiki: {
+        themes: ['dracula', 'solarized-light'],
+        langs: ["ocaml", "erlang", "javascript"],
+      }
+    }),
     starlight({
       title: "Riot",
       logo : {
@@ -19,10 +25,10 @@ export default defineConfig({
       },
       customCss: ["./src/styles/custom.css"],
       sidebar: [
+        { label: "Getting Started", slug: "getting-started" },
         {
           label: "Guides",
           items: [
-            // Each item here is one entry in the navigation menu.
             { label: "Example Guide", slug: "guides/example" },
           ],
         },
