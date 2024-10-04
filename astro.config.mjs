@@ -2,22 +2,15 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
-import astroExpressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://riot.ml',
+  site: "https://riot.ml",
   integrations: [
-    astroExpressiveCode({
-      shiki: {
-        themes: ['dracula', 'solarized-light'],
-        langs: ["ocaml", "erlang", "javascript"],
-      }
-    }),
     starlight({
       title: "Riot",
-      logo : {
-        src: './src/assets/riot.png'
+      logo: {
+        src: "./src/assets/riot.png",
       },
       social: {
         github: "https://github.com/riot-ml/riot",
@@ -28,15 +21,19 @@ export default defineConfig({
         { label: "Getting Started", slug: "getting-started" },
         {
           label: "Guides",
-          items: [
-            { label: "Example Guide", slug: "guides/example" },
-          ],
+          items: [{ label: "Example Guide", slug: "guides/example" }],
         },
         {
           label: "Reference",
           autogenerate: { directory: "reference" },
         },
       ],
+      expressiveCode: {
+        themes: ["snazzy-light", 'monokai'],
+        shiki: {
+          langs: ["ocaml", "erlang", "javascript"],
+        },
+      },
     }),
     tailwind({ applyBaseStyles: false }),
   ],
