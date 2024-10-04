@@ -30,16 +30,8 @@ jobs:
           node-version: 18
           cache: "npm"
       - run: npm install
-      - name: Set-up OCaml
-        uses: ocaml/setup-ocaml@v2
-        with:
-          ocaml-compiler: "5.1"
-          allow-prerelease-opam: true
-      - run: opam install . --deps-only --with-test
-      - run: opam exec -- dune build
-      - run: opam exec -- dune test
       - name: Build
-        run: ./node_modules/.bin/vite build _build/default
+        run: ./node_modules/.bin/astro build
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
